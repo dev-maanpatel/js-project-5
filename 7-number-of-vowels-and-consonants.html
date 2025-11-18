@@ -35,7 +35,44 @@
     </div>
 
     <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script>
+         $(document).ready(function () {
+            $("#findBtn").on("click", function () {
+
+                let str = String(document.getElementById("strInput").value);
+                let ans = document.getElementById("resultDisplay");
+                let resultSection = document.getElementById("resultSection");
+
+                const vowelList = /[aeiou]/i;
+                const consonantList = /[b-df-hj-np-tv-z]/i;
+
+                let vowelCount = 0;
+                let consonantCount = 0;
+
+                $(ans).removeClass("error");
+
+                if (str === "") {
+                    $(ans).text("PLEASE ENTER A WORD OR SENTENCE.").addClass("error");
+                    $(resultSection).css("display", "block");
+                    return;
+                }
+
+                str.split("").forEach((char) => {
+                    if (vowelList.test(char)) {
+                        vowelCount++;
+                    } else if (consonantList.test(char)) {
+                        consonantCount++;
+                    }
+                })
+
+                $("#resultDisplay").html(`
+                <p>Vowels: ${vowelCount}</p>
+                <p>Consonants: ${consonantCount}</p>
+                `);
+                $(resultSection).css("display", "block");
+            })
+        })
+    </script>
 
 </body>
 

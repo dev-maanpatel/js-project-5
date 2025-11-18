@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convert to Uppercase</title>
 
-    <!-- ⭐ SAME THEME CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -36,7 +35,27 @@
     </div>
 
     <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script>
+         $(document).ready(function () {
+     $("#convertBtn").on("click", function () {
+         
+         let str = String(document.getElementById("strInput").value);
+         let resultDisplay = document.getElementById("resultDisplay");
+         let resultSection = document.getElementById("resultSection");
+         
+         $(resultDisplay).removeClass("error");
+         
+                if (str === "") {
+                    $(resultDisplay).text("PLEASE ENTER A WORD OR SENTENCE.").addClass("error");
+                    $(resultSection).css("display", "block");
+                    return;
+                }
+                
+                $(resultDisplay).text(str.trim().toUpperCase());
+                $(resultSection).css("display", "block");
+            })
+        })
+    </script>
 </body>
 
 </html>

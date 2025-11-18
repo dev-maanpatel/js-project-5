@@ -36,7 +36,39 @@
     </div>
 
     <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script>
+         $(document).ready(function () {
+
+            $("#findBtn").on("click", function () {
+
+                let str = String($("#strInput").val());
+                let resultDisplay = $("#resultDisplay");
+                let resultSection = $("#resultSection");
+
+                resultDisplay.removeClass("error");
+
+                if (str.trim() === "") {
+                    resultDisplay.text("PLEASE ENTER AT LEAST ONE NUMBER.").addClass("error");
+                    resultSection.show();
+                    return;
+                }
+
+                let numbers = str
+                    .split(/[^-\d]+/)
+                    .filter(v => v !== "")
+                    .filter((v, i, arr) => arr.indexOf(v) === i);
+
+                if (numbers.length === 0) {
+                    resultDisplay.text("PLEASE ENTER AT LEAST ONE NUMBER.").addClass("error");
+                } else {
+                    resultDisplay.text(numbers.join(", "));
+                }
+
+                resultSection.show();
+            });
+
+        });
+    </script>
 
 </body>
 

@@ -35,7 +35,46 @@
     </div>
 
     <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#findBtn").on("click", function () {
+
+                let str = String(document.getElementById("strInput").value);
+                let resultDisplay = document.getElementById("resultDisplay");
+                let resultSection = document.getElementById("resultSection");
+
+                $(resultDisplay).removeClass("error");
+
+                if (str === "") {
+                    $(resultDisplay).text("PLEASE ENTER WORDS OR A SENTENCE.").addClass("error");
+                    $(resultSection).css("display", "block");
+                    return;
+                }
+
+                let wordList = str.trim().split(" ").filter(val => (val !== "" && val !== " "))
+                let longestWords = [];
+                let maxLength = 0;
+
+                wordList.forEach(word => {
+                    if (word.length > maxLength) {
+                        maxLength = word.length;
+                        longestWords = [word];
+                    } else if (word.length === maxLength) {
+                        longestWords.push(word);
+                    }
+                })
+
+                if (longestWords.length === 0) {
+                    $(resultDisplay).text("PLEASE ENTER WORDS OR A SENTENCE.").addClass("error");
+                    $(resultSection).css("display", "block");
+                    return;
+                }
+
+                $(resultDisplay).text(longestWords.join(", "));
+                $(resultSection).css("display", "block");
+            })
+        })
+    </script>
 </body>
 
 </html>

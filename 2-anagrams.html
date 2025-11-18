@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anagram Checker</title>
 
-    <!-- ⭐ SAME CSS FILE AS PALINDROME -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -41,7 +40,44 @@
     </div>
 
     <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script>
+          $(document).ready(function () {
+            $("#checkAnagramBtn").on("click", function () {
+                let str1 = String(document.getElementById("strInput1").value).toLowerCase();
+                let str2 = String(document.getElementById("strInput2").value).toLowerCase();
+                let resultDisplay = document.getElementById("resultDisplay");
+                let resultSection = document.getElementById("resultSection");
+
+                $(resultDisplay).removeClass("success error");
+
+                function cleanStr(str) {
+                    return str.trim().toLowerCase().split("").filter(val => (val !== "" && val !== " ")).sort().join("");
+                }
+
+                console.log(cleanStr(str1), cleanStr(str2));
+
+                if (str1 === "" || str2 === "") {
+                    $(resultDisplay).text("PLEASE ENTER WORDS IN BOTH FIELDS.").addClass("error");
+                    $(resultSection).css("display", "block");
+                    return;
+                }
+
+                if (cleanStr(str1).length !== cleanStr(str2).length) {
+                    $(resultDisplay).text("NOT AN ANAGRAM").addClass("error");
+                    $(resultSection).css("display", "block");
+                    return;
+                }
+
+                if (cleanStr(str1) === cleanStr(str2)) {
+                    $(resultDisplay).text("ANAGRAM").addClass("success");
+                } else {
+                    $(resultDisplay).text("NOT AN ANAGRAM").addClass("error");
+                }
+
+                $(resultSection).css("display", "block");
+            });
+        });
+    </script>
 
 </body>
 </html>

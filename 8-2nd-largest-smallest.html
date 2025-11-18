@@ -35,7 +35,43 @@
     </div>
 
     <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script>
+        
+ $(document).ready(function () {
+            $("#findBtn").on("click", function () {
+
+                let str = String(document.getElementById("strInput").value);
+                let resultDisplay = document.getElementById("resultDisplay");
+                let resultSection = document.getElementById("resultSection");
+
+                $(resultDisplay).removeClass("error");
+
+                if (str === "") {
+                    $(resultDisplay).text("PLEASE ENTER AT LEAST FOUR NUMBERS.").addClass("error");
+                    $(resultSection).css("display", "block");
+                    return;
+                }
+
+                let numbers = str
+                    .split(/[^-\d]+/)
+                    .filter(val => val !== "")
+                    .map(val => Number(val))
+                    .sort((a, b) => a - b);
+
+                if (numbers.length < 4) {
+                    $(resultDisplay).text("PLEASE ENTER AT LEAST FOUR NUMBERS.").addClass("error");
+                    $(resultSection).css("display", "block");
+                    return;
+                }
+
+                $("#resultDisplay").html(`
+                <p>2nd smallest number: ${numbers[1]}</p>
+                <p>2nd largest number: ${numbers[numbers.length - 2]}</p>
+                `)
+                $(resultSection).css("display", "block");
+            })
+        })
+    </script>
 </body>
 
 </html>
