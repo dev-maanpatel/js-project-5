@@ -1,0 +1,80 @@
+/* === Base Dark Theme === */
+body {
+    background: #0b0e14;
+    color: #e6e6e6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tools-grid {
+    margin-top: 40px;
+}
+
+/* === Card Styling === */
+.tool-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 35px 20px;
+    text-align: center;
+    transition: 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* === Blue Hover Glow === */
+.tool-card:hover {
+    background: rgba(0, 140, 255, 0.15);
+    border-color: #4da6ff;
+    box-shadow: 0 0 25px rgba(0, 140, 255, 0.6);
+    transform: translateY(-10px) scale(1.04);
+}
+
+/* === Number Circle === */
+.tool-number {
+    width: 75px;
+    height: 75px;
+    font-size: 32px;
+    font-weight: 700;
+    border-radius: 50%;
+    background: rgba(0, 140, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: .3s ease;
+}
+
+/* Hover effect for number */
+.tool-card:hover .tool-number {
+    background: #008cff;
+    color: white;
+    transform: scale(1.18);
+}
+
+/* === Title (Big & Light) === */
+.tool-title {
+    font-size: 22px;
+    font-weight: 300;       /* light */
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+    color: #d7e4ff;
+}
+
+/* === Green Button === */
+.tool-link {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #17d167;
+    color: #0c0c0c;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+/* Hover: brighter green + lift */
+.tool-link:hover {
+    background: #12b85a;
+    transform: translateY(-4px);
+    box-shadow: 0 0 15px rgba(23, 209, 103, 0.6);
+}

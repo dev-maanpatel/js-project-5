@@ -1,0 +1,115 @@
+/* ---------- GLOBAL DARK THEME ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0d0f14;
+    font-family: "Poppins", sans-serif;
+    color: #e4e4e4;
+}
+
+/* CENTER LAYOUT */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* CARD */
+.app-card {
+    background: #1b1f29;
+    padding: 30px;
+    border-radius: 15px;
+    width: 420px;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+/* BIG LIGHT TITLE */
+.app-title {
+    font-size: 34px;
+    font-weight: 700;
+    color: #b8c6ff;
+    letter-spacing: 1px;
+}
+
+.app-subtitle {
+    font-size: 14px;
+    color: #9ca3c7;
+    margin-top: -5px;
+    margin-bottom: 25px;
+}
+
+/* INPUT BOX */
+.form-label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 6px;
+    text-align: left;
+    color: #cdd5ff;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #2a2f3c;
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.form-input:focus {
+    background: #31394b;
+    border-left: 4px solid #3a7bff;
+}
+
+/* ---------- BUTTON ---------- */
+.btn-primary {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #2ecc71; /* green */
+    color: #fff;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background: #27ae60; /* darker green */
+}
+
+/* ---------- RESULT SECTION ---------- */
+.result-section {
+    margin-top: 22px;
+    padding: 20px;
+    background: #13161f;
+    border-radius: 10px;
+    border-left: 4px solid #3a7bff;
+}
+
+.result-label {
+    font-size: 18px;
+    color: #aabaff;
+    margin-bottom: 10px;
+}
+
+.result-display {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* SUCCESS & ERROR COLORS */
+.success {
+    color: #2ecc71 !important;
+}
+
+.error {
+    color: #ff5c5c !important;
+}
